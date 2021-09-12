@@ -1,0 +1,3 @@
+path: public/core
+server:
+  docroot: public

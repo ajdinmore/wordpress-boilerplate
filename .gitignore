@@ -1,0 +1,10 @@
+/.env
+/.data
+/vendor
+/public/core
+/public/themes
+/public/uploads
+/public/plugins
+
+## ??
+/public/languages

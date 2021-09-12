@@ -1,0 +1,9 @@
+.data
+vendor
+public/core
+public/themes
+public/plugins
+public/uploads
+
+## ??
+public/languages

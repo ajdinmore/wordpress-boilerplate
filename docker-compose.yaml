@@ -1,0 +1,40 @@
+version: "3.8"
+services:
+  web:
+    image:    ajdinmore/php-dev:7.3
+    hostname: web
+    ports:
+    - ${HTTP_PORT:-80}:80
+    volumes:
+    - ./:/app
+    - ${COMPOSER_HOME:-~/.composer}:/composer
+    environment:
+      APP_ENV:          ${APP_ENV:-dev}
+      URL:              ${URL:-http://localhost}
+
+      DB_NAME:          wordpress
+      DB_USER:          wordpress
+      DB_PASSWORD:      wordpress
+      DB_HOST:          db
+
+      AUTH_KEY:         ${AUTH_KEY:-set this for live!}
+      SECURE_AUTH_KEY:  ${SECURE_AUTH_KEY:-set this for live!}
+      LOGGED_IN_KEY:    ${LOGGED_IN_KEY:-set this for live!}
+      NONCE_KEY:        ${NONCE_KEY:-set this for live!}
+      AUTH_SALT:        ${AUTH_SALT:-set this for live!}
+      SECURE_AUTH_SALT: ${SECURE_AUTH_SALT:-set this for live!}
+      LOGGED_IN_SALT:   ${LOGGED_IN_SALT:-set this for live!}
+      NONCE_SALT:       ${NONCE_SALT:-set this for live!}
+
+  db:
+    image:    mysql:5.7
+    hostname: db
+    ports:
+    - ${MYSQL_PORT:-3306}:3306
+    environment:
+      MYSQL_ROOT_PASSWORD: password
+      MYSQL_DATABASE:      wordpress
+      MYSQL_USER:          wordpress
+      MYSQL_PASSWORD:      wordpress
+    volumes:
+    - .data/db:/var/lib/mysql
