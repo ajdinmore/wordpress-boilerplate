@@ -7,6 +7,18 @@
 /public/plugins
 /public/mu-plugins
 /public/languages
-
-## There shouldn't be anything in here, but just in case...
 /public/upgrade
+
+## Drop-ins, remove if one is part of project
+/public/advanced-cache.php
+/public/db.php
+/public/db-error.php
+/public/install.php
+/public/maintenance.php
+/public/object-cache.php
+/public/php-error.php
+/public/fatal-error-handler.php
+/public/sunrise.php
+/public/blog-deleted.php
+/public/blog-inactive.php
+/public/blog-suspended.php
