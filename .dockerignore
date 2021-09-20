@@ -4,6 +4,5 @@ public/core
 public/themes
 public/plugins
 public/uploads
-
-## ??
-public/languages
+/public/mu-plugins
+/public/languages

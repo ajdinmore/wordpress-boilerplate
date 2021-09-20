@@ -3,7 +3,7 @@
 
 require dirname(__DIR__) . '/vendor/autoload.php';
 
-if ('dev' === $_ENV['APP_ENV']) {
+if ('dev' === $_SERVER['APP_ENV']) {
     \Symfony\Component\ErrorHandler\Debug::enable();
 }
 

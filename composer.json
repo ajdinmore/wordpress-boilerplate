@@ -4,7 +4,8 @@
     "type": "project",
     "license": "MIT",
     "require": {
-        "johnpbloch/wordpress": "^5.8"
+        "johnpbloch/wordpress": "^5.8",
+        "wp-cli/wp-cli-bundle": "^2.5"
     },
     "require-dev": {
         "symfony/error-handler": "^5.3",
@@ -15,6 +16,12 @@
             "App\\": "src/"
         }
     },
+    "repositories": [
+        {
+            "type": "composer",
+            "url": "https://wpackagist.org"
+        }
+    ],
     "extra": {
         "wordpress-install-dir": "public/core",
         "installer-paths": {
