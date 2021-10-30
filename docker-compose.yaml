@@ -17,14 +17,14 @@ services:
       DB_PASSWORD:      wordpress
       DB_HOST:          db
 
-      AUTH_KEY:         ${AUTH_KEY:-set this for live!}
-      SECURE_AUTH_KEY:  ${SECURE_AUTH_KEY:-set this for live!}
-      LOGGED_IN_KEY:    ${LOGGED_IN_KEY:-set this for live!}
-      NONCE_KEY:        ${NONCE_KEY:-set this for live!}
-      AUTH_SALT:        ${AUTH_SALT:-set this for live!}
-      SECURE_AUTH_SALT: ${SECURE_AUTH_SALT:-set this for live!}
-      LOGGED_IN_SALT:   ${LOGGED_IN_SALT:-set this for live!}
-      NONCE_SALT:       ${NONCE_SALT:-set this for live!}
+      AUTH_KEY:         uniquevalue
+      SECURE_AUTH_KEY:  uniquevalue
+      LOGGED_IN_KEY:    uniquevalue
+      NONCE_KEY:        uniquevalue
+      AUTH_SALT:        uniquevalue
+      SECURE_AUTH_SALT: uniquevalue
+      LOGGED_IN_SALT:   uniquevalue
+      NONCE_SALT:       uniquevalue
 
   db:
     image:    mysql:5.7

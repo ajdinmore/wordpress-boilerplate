@@ -1,8 +1,5 @@
 .data
 vendor
-public/core
-public/themes
-public/plugins
-public/uploads
-/public/mu-plugins
-/public/languages
+public
+!public/index.php
+!public/wp-config.php
