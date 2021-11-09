@@ -1,0 +1,24 @@
+<?php
+
+const WP_HOME         = 'https://example.com';
+const FORCE_SSL_ADMIN = true;
+const WP_DEBUG        = false;
+
+const DB_NAME     = '';
+const DB_USER     = '';
+const DB_PASSWORD = '';
+const DB_HOST     = '';
+const DB_CHARSET  = 'utf8';
+const DB_COLLATE  = '';
+
+// php -r 'for($i=0;$i<8;$i++)echo bin2hex(random_bytes(32))."\n";'
+const AUTH_KEY         = '';
+const SECURE_AUTH_KEY  = '';
+const LOGGED_IN_KEY    = '';
+const NONCE_KEY        = '';
+const AUTH_SALT        = '';
+const SECURE_AUTH_SALT = '';
+const LOGGED_IN_SALT   = '';
+const NONCE_SALT       = '';
+
+$table_prefix = '';

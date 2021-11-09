@@ -1,0 +1,25 @@
+<?php /** @noinspection DuplicatedCode */
+
+define('DB_NAME', $_SERVER['DB_NAME']);
+define('DB_USER', $_SERVER['DB_USER']);
+define('DB_PASSWORD', $_SERVER['DB_PASSWORD']);
+define('DB_HOST', $_SERVER['DB_HOST']);
+define('DB_CHARSET', $_SERVER['DB_CHARSET'] ?? 'utf8');
+define('DB_COLLATE', $_SERVER['DB_COLLATE'] ?? '');
+
+define('WP_HOME', $_SERVER['URL'] ?? $_SERVER['WP_HOME'] ?? $_SERVER['REQUEST_SCHEME'] . '://' . $_SERVER['HTTP_HOST']);
+
+$table_prefix = $_SERVER['TABLE_PREFIX'] ?? 'wp_';
+
+// In places, WordPress will interfere with Symfony's debug component if WP_DEBUG is true
+const WP_DEBUG = false;
+
+// these aren't important for local dev work
+const AUTH_KEY         = '';
+const SECURE_AUTH_KEY  = '';
+const LOGGED_IN_KEY    = '';
+const NONCE_KEY        = '';
+const AUTH_SALT        = '';
+const SECURE_AUTH_SALT = '';
+const LOGGED_IN_SALT   = '';
+const NONCE_SALT       = '';

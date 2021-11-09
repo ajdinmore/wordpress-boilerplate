@@ -1,0 +1,16 @@
+## Port/volume mappings are `<local>:<container>`
+services:
+  web:
+    ports:
+    - 80:80
+    volumes:
+    - ~/.composer:/composer
+    environment:
+      APP_ENV: dev
+      URL:     http://localhost
+
+  db:
+    ports:
+    - 3306:3306
+    volumes:
+    - .data/db:/var/lib/mysql

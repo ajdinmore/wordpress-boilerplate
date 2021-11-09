@@ -4,6 +4,7 @@
     "type": "project",
     "license": "MIT",
     "require": {
+        "php": ">=7.0",
         "johnpbloch/wordpress": "^5.8",
         "wp-cli/wp-cli-bundle": "^2.5"
     },
@@ -29,17 +30,29 @@
     "extra": {
         "wordpress-install-dir": "public/core",
         "installer-paths": {
+            "public/mu-plugins/{$name}": ["type:wordpress-muplugin"],
             "public/plugins/{$name}": ["type:wordpress-plugin"],
             "public/themes/{$name}": ["type:wordpress-theme"],
-            "public/mu-plugins/{$name}": ["type:wordpress-muplugin"],
             "public/{$name}": ["type:wordpress-dropin"]
         }
     },
+    "prefer-stable": true,
     "config": {
         "optimize-autoloader": true,
         "preferred-install": {
             "*": "dist"
         },
         "sort-packages": true
+    },
+    "scripts": {
+        "post-install-cmd": [
+            "@auto-scripts"
+        ],
+        "post-update-cmd": [
+            "@auto-scripts"
+        ],
+        "auto-scripts": [
+            "php -r '@unlink(\"public/core/xmlrpc.php\");'"
+        ]
     }
 }

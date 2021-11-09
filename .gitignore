@@ -1,8 +1,11 @@
 /.env
 /wp-cli.local.yml
-/.data
-/vendor
-#/wp-config.php
+/.data/
+/vendor/
+/wp-config.php
 /public/*
 !/public/index.php
 !/public/wp-config.php
+
+/docker-compose.override.yaml
+/docker-compose.override.yml
