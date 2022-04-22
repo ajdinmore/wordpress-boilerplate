@@ -9,7 +9,7 @@ const DB_USER     = '';
 const DB_PASSWORD = '';
 const DB_HOST     = '';
 const DB_CHARSET  = 'utf8';
-const DB_COLLATE  = '';
+const DB_COLLATE  = ''; // a blank string is valid here
 
 // php -r 'for($i=0;$i<8;$i++)echo bin2hex(random_bytes(32))."\n";'
 const AUTH_KEY         = '';

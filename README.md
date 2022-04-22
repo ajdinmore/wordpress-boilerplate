@@ -8,32 +8,14 @@ that have the correct config, as described in the
 Included Docker setup is intended for local dev use only; the image is thrown together, and I've no idea how secure it
 is.
 
-To install a plugin to `mu-plugins` add its name to the relevant installer path. The mu-plugins block *must* come before
-the standard plugins one for this to work.
-
-```json
-{
-    "extra": {
-        "installer-paths": {
-            "public/mu-plugins/{$name}": [
-                "type:wordpress-muplugin",
-                "wpackagist-plugin/woocommerce"
-            ],
-            "public/plugins/{$name}": ["type:wordpress-plugin"],
-            "public/themes/{$name}": ["type:wordpress-theme"]
-        }
-    }
-}
-```
-
 ## Setup Examples
 
 Ready for lazy copy & paste.
 
-### WooCommerce store, local server/PHP
+### WooCommerce store, local server (DB defined in environment vars)
 
 ```shell
-composer create-project ajdinmore/wordpress-boilerplate wp-dev-site &&
+composer create-project ajdinmore/wordpress-boilerplate wc-dev-store &&
 cd wp-dev-site &&
 cp wp-config.local wp-config.php &&
 composer require wpackagist-plugin/woocommerce wpackagist-theme/storefront &&
@@ -51,24 +33,24 @@ vendor/bin/wp plugin activate woocommerce
 
 ```shell
 docker run --rm -it \
---user $(id -u):$(id -g) \
---volume $(pwd):/app \
-ajdinmore/php-dev \
-composer create-project --no-install ajdinmore/wordpress-boilerplate wp-dev-site &&
+  --user $(id -u):$(id -g) \
+  --volume $(pwd):/app \
+  ajdinmore/php-dev \
+  composer create-project --no-install ajdinmore/wordpress-boilerplate wp-dev-site &&
 cd wp-dev-site &&
 cp wp-config.local wp-config.php &&
 cp docker-compose.override.dist docker-compose.override.yaml &&
 docker-compose up -d &&
 docker-compose exec -u $(id -u):$(id -g) web bash -c \
-'composer require wpackagist-theme/twentytwentyone &&
-printf "Waiting for DB..." &&
-until mysql -h db -u wordpress -pwordpress wordpress -e "select 1" > /dev/null 2>&1
-do sleep 1; printf "."; done && echo &&
-vendor/bin/wp core install --skip-email \
-  --url=localhost \
-  --title="My Dev Site" \
-  --admin_user=admin \
-  --admin_password=admin \
-  --admin_email=admin@example.com' &&
+  'composer require wpackagist-theme/twentytwentyone &&
+  printf "Waiting for DB..." &&
+  until mysql -h db -u wordpress -pwordpress wordpress -e "select 1" > /dev/null 2>&1
+  do sleep 1; printf "."; done && echo &&
+  vendor/bin/wp core install --skip-email \
+    --url=localhost \
+    --title="My Dev Site" \
+    --admin_user=admin \
+    --admin_password=admin \
+    --admin_email=admin@example.com' &&
 docker-compose stop && docker-compose up
 ```

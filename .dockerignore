@@ -3,3 +3,4 @@ vendor
 public
 !public/index.php
 !public/wp-config.php
+!public/mu-plugins/secure.php

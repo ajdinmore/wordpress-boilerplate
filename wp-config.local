@@ -7,11 +7,16 @@ define('DB_HOST', $_SERVER['DB_HOST']);
 define('DB_CHARSET', $_SERVER['DB_CHARSET'] ?? 'utf8');
 define('DB_COLLATE', $_SERVER['DB_COLLATE'] ?? '');
 
-define('WP_HOME', $_SERVER['URL'] ?? $_SERVER['WP_HOME'] ?? $_SERVER['REQUEST_SCHEME'] . '://' . $_SERVER['HTTP_HOST']);
+define(
+    'WP_HOME',
+    $_SERVER['URL'] ??
+    $_SERVER['WP_HOME'] ??
+    ($_SERVER['REQUEST_SCHEME'] ?? 'http') . '://' . ($_SERVER['HTTP_HOST'] ?? 'localhost')
+);
 
 $table_prefix = $_SERVER['TABLE_PREFIX'] ?? 'wp_';
 
-// In places, WordPress will interfere with Symfony's debug component if WP_DEBUG is true
+// in places, WordPress will interfere with Symfony's debug component if WP_DEBUG is true
 const WP_DEBUG = false;
 
 // these aren't important for local dev work

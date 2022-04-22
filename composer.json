@@ -52,7 +52,8 @@
             "@auto-scripts"
         ],
         "auto-scripts": [
-            "php -r '@unlink(\"public/core/xmlrpc.php\");'"
+            "@php -r '@unlink(\"public/core/xmlrpc.php\");'",
+            "@php -r '@unlink(\"public/core/wp-trackback.php\");'"
         ]
     }
 }
