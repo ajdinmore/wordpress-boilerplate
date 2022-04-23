@@ -16,7 +16,7 @@ Ready for lazy copy & paste.
 
 ```shell
 composer create-project ajdinmore/wordpress-boilerplate wc-dev-store &&
-cd wp-dev-site &&
+cd wc-dev-store &&
 cp wp-config.local wp-config.php &&
 composer require wpackagist-plugin/woocommerce wpackagist-theme/storefront &&
 vendor/bin/wp core install --skip-email \

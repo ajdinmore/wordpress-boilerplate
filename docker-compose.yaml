@@ -2,7 +2,7 @@
 version: "3.7"
 services:
   web:
-    image:    ajdinmore/php-dev:8.0
+    image:    ajdinmore/php-dev:8.1
     hostname: web
     volumes:
     - ./:/app

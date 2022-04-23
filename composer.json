@@ -5,12 +5,12 @@
     "license": "MIT",
     "require": {
         "php": ">=7.0",
-        "johnpbloch/wordpress": "^5.8",
-        "wp-cli/wp-cli-bundle": "^2.5"
+        "johnpbloch/wordpress": "^5.9",
+        "wp-cli/wp-cli-bundle": "^2.6"
     },
     "require-dev": {
-        "symfony/error-handler": "^5.3",
-        "symfony/var-dumper": "^5.3"
+        "symfony/error-handler": "^6.0",
+        "symfony/var-dumper": "^6.0"
     },
     "autoload": {
         "psr-4": {
@@ -42,7 +42,10 @@
         "preferred-install": {
             "*": "dist"
         },
-        "sort-packages": true
+        "sort-packages": true,
+        "allow-plugins": {
+            "johnpbloch/wordpress-core-installer": true
+        }
     },
     "scripts": {
         "post-install-cmd": [

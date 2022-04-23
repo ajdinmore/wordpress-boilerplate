@@ -5,8 +5,7 @@ require dirname(__DIR__) . '/wp-config.php';
 
 if (
     // Account for weird behaviour of eval in WP_CLI\Runner::load_wordpress causing null coalescence to fail
-    isset ($_SERVER['APP_ENV'])
-    && 'dev' === $_SERVER['APP_ENV']
+    isset ($_SERVER['APP_ENV']) && 'dev' === $_SERVER['APP_ENV']
     && class_exists(Symfony\Component\ErrorHandler\Debug::class)
 ) {
     Symfony\Component\ErrorHandler\Debug::enable();
