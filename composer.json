@@ -5,12 +5,12 @@
     "license": "MIT",
     "require": {
         "php": ">=7.0",
-        "johnpbloch/wordpress": "^5.9",
+        "johnpbloch/wordpress": "^6.0",
         "wp-cli/wp-cli-bundle": "^2.6"
     },
     "require-dev": {
-        "symfony/error-handler": "^6.0",
-        "symfony/var-dumper": "^6.0"
+        "symfony/error-handler": "*",
+        "symfony/var-dumper": "*"
     },
     "autoload": {
         "psr-4": {

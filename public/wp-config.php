@@ -19,4 +19,6 @@ const DISALLOW_FILE_EDIT       = true;
 const DISALLOW_FILE_MODS       = true;
 const DISALLOW_UNFILTERED_HTML = true;
 
+const WP_AUTO_UPDATE_CORE = false;
+
 require ABSPATH . 'wp-settings.php';
