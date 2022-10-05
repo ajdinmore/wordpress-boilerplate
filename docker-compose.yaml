@@ -1,22 +1,33 @@
 ## For local/dev use only - do not use in production
 version: "3.7"
 services:
-  web:
-    image:    ajdinmore/php-dev:8.1
-    hostname: web
-    volumes:
-    - ./:/app
-    environment:
-      DB_NAME:     wordpress
-      DB_USER:     wordpress
-      DB_PASSWORD: wordpress
-      DB_HOST:     db
+    php:
+        image:    ajdinmore/php:8.1-dev
+        hostname: php
+        tty:      true
+        volumes:
+            - ./:/app
+        environment:
+            DB_NAME:     wordpress
+            DB_USER:     wordpress
+            DB_PASSWORD: wordpress
+            DB_HOST:     db
 
-  db:
-    image:    mysql:5.7
-    hostname: db
-    environment:
-      MYSQL_ROOT_PASSWORD: password
-      MYSQL_DATABASE:      wordpress
-      MYSQL_USER:          wordpress
-      MYSQL_PASSWORD:      wordpress
+    nginx:
+        image:    ajdinmore/nginx
+        hostname: nginx
+        tty:      true
+        depends_on:
+            - php
+        volumes:
+            - ./:/app
+
+    db:
+        image:    mysql:8.0
+        hostname: db
+        tty:      true
+        environment:
+            MYSQL_ROOT_PASSWORD: password
+            MYSQL_DATABASE:      wordpress
+            MYSQL_USER:          wordpress
+            MYSQL_PASSWORD:      wordpress

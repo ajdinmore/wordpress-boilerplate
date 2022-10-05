@@ -35,14 +35,14 @@ vendor/bin/wp plugin activate woocommerce
 docker run --rm -it \
   --user $(id -u):$(id -g) \
   --volume $(pwd):/app \
-  ajdinmore/php-dev \
+  ajdinmore/php:8.1-dev \
   composer create-project --no-install ajdinmore/wordpress-boilerplate wp-dev-site &&
 cd wp-dev-site &&
 cp wp-config.local wp-config.php &&
-cp docker-compose.override.dist docker-compose.override.yaml &&
+cp docker-compose.override.yaml.dist docker-compose.override.yaml &&
 docker-compose up -d &&
-docker-compose exec -u $(id -u):$(id -g) web bash -c \
-  'composer require wpackagist-theme/twentytwentyone &&
+docker-compose exec -u $(id -u):$(id -g) php bash -c \
+  'composer require wpackagist-theme/twentytwentytwo &&
   printf "Waiting for DB..." &&
   until mysql -h db -u wordpress -pwordpress wordpress -e "select 1" > /dev/null 2>&1
   do sleep 1; printf "."; done && echo &&
