@@ -1,5 +1,6 @@
 .data
 vendor
+node_modules
 public
 !public/index.php
 !public/wp-config.php

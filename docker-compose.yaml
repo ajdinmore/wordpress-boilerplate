@@ -36,3 +36,13 @@ services:
             MYSQL_DATABASE:      wordpress
             MYSQL_USER:          wordpress
             MYSQL_PASSWORD:      wordpress
+
+    assets:
+        image:       node:18-alpine
+        hostname:    node
+        tty:         true
+        working_dir: /app
+        user:        0:0 # default to root, so we don't have issues running without override file
+        command:     sh -c 'npm install && npm run watch'
+        volumes:
+            - ./:/app

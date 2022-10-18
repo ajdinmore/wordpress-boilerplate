@@ -9,5 +9,5 @@
 !public/mu-plugins
 /public/mu-plugins/*
 !public/mu-plugins/secure.php
-
+/node_modules/
 /docker-compose.override.y*ml
