@@ -26,6 +26,7 @@ services:
         image:    mysql:8.0
         hostname: db
         tty:      true
+        cap_add: [ SYS_NICE ] # stops "mbind: Operation not permitted" log
         environment:
             MYSQL_ROOT_PASSWORD: password
             MYSQL_DATABASE:      wordpress
