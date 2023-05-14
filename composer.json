@@ -4,9 +4,9 @@
     "type": "project",
     "license": "MIT",
     "require": {
-        "php": ">=7.0",
-        "johnpbloch/wordpress": "^6.0",
-        "wp-cli/wp-cli-bundle": "^2.6"
+        "johnpbloch/wordpress": "^6.2",
+        "roots/wp-password-bcrypt": "^1.1",
+        "wp-cli/wp-cli-bundle": "^2.7"
     },
     "require-dev": {
         "symfony/error-handler": "*",

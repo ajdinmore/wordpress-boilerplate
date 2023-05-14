@@ -1,14 +1,16 @@
 ## Port/volume mappings are `<local>:<container>`
 services:
-    php:
+    app:
         volumes:
             - ~/.composer:/composer
         user: 1000:1000
+        ports:
+            - 9000:9000
         environment:
             APP_ENV: dev
             URL:     http://localhost
 
-    nginx:
+    server:
         ports:
             - 80:80
 
